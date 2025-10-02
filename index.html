@@ -284,32 +284,35 @@
                         
                         <div class="video-card w-[300px] bg-gray-900 p-3 rounded-lg border border-blue-700/50">
                             <div class="video-container">
-                                <iframe 
-                                    src="./Project/Video/Blog Teaser.mp4" 
-                                    frameborder="0" 
-                                    
-                                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                    allowfullscreen>
-                                </iframe>
+                                <video
+                                    src="./Project/Video/Blog Teaser.mp4"
+                                    controls
+                                    preload="metadata"
+                                    poster="./Project/Video/Blog Teaser-poster.jpg"
+                                    class="w-full h-auto rounded">
+                                    Your browser does not support the video tag.
+                                </video>
                             </div>
                             <h3 class="text-md font-semibold text-white mt-3 mb-1 truncate">Blog teaser</h3>
                             <p class="text-xs text-gray-500">Tools Used: CapCut (CP/Mobile), Basic Photo Editing</p>
                         </div>
-
+            
                         <div class="video-card w-[300px] bg-gray-900 p-3 rounded-lg border border-blue-700/50">
                             <div class="video-container">
-                                <iframe 
-                                    src="./Project/Video/Enrollment.mp4" 
-                                    frameborder="0" 
-                                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                    allowfullscreen>
-                                </iframe>
+                                <video
+                                    src="./Project/Video/Enrollment.mp4"
+                                    controls
+                                    preload="metadata"
+                                    poster="./Project/Video/Enrollment-poster.jpg"
+                                    class="w-full h-auto rounded">
+                                    Your browser does not support the video tag.
+                                </video>
                             </div>
                             <h3 class="text-md font-semibold text-white mt-3 mb-1 truncate">Enrollment</h3>
                             <p class="text-xs text-gray-500">Tools Used: CapCut (CP/Mobile), Basic Photo Editing</p>
                         </div>
                         
-                        </div>
+                    </div>
                     
                     <button id="scroll-left-btn" class="absolute top-1/2 -left-10 transform -translate-y-1/2 bg-blue-600 p-2 rounded-full text-white hover:bg-blue-700 transition duration-200 hidden md:block" aria-label="Scroll Left">
                         <i class="fas fa-chevron-left"></i>
@@ -319,7 +322,6 @@
                         <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
-                
             </div>
 
             <div id="project-pictures" class="project-section-box space-y-6 mb-20">
