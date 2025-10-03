@@ -1,11 +1,10 @@
-
 // Variable Declarations 
 const mainElements = document.querySelectorAll('main');
 const desktopLinks = document.querySelectorAll('#desktop-nav a');
 const mobileLinks = document.querySelectorAll('#mobile-nav a');
 const hamburgerIcon = document.getElementById('hamburger-menu');
 const mobileNav = document.getElementById('mobile-nav');
-// Variables for Project Carousel (assuming you'll add those sections later)
+// Variables for Project Carousel
 const videoCarousel = document.getElementById('video-carousel'); 
 const scrollLeftBtn = document.getElementById('scroll-left-btn'); 
 const scrollRightBtn = document.getElementById('scroll-right-btn');
@@ -13,26 +12,20 @@ const nav = document.getElementById('desktop-nav');
 let lastScrollTop = 0;
 
 /**
-    * Handles the form submission process.
-    * It allows the form to submit to Formspree, and then clears the local fields with a small delay.
-    * @param {Event} e The submission event.
-    */
+ * Handles the form submission process.
+ */
 function submitAndClear(e) {
-    // We do NOT use e.preventDefault() here because we want the native form submit (to Formspree) to happen.
-    
-    // Use a delay to clear the form AFTER the browser has initiated data transfer.
     setTimeout(function() {
         const form = document.getElementById('contactForm');
         if (form) {
             form.reset();
         }
-    }, 100); // 100ms (0.1 second) delay is reliable for clearing the fields.
+    }, 100); 
 }
 
 /**
-    * Switches the active content section.
-    * @param {string} sectionId The ID of the main section to show.
-    */
+ * Switches the active content section.
+ */
 function showPage(sectionId) {
     // Hide all main sections
     mainElements.forEach(main => {
@@ -40,18 +33,16 @@ function showPage(sectionId) {
         main.classList.remove('flex'); 
     });
 
-    // Show the requested section
+    // Show requested section
     const activeSection = document.getElementById(sectionId);
     if (activeSection) {
         activeSection.classList.remove('hidden');
         activeSection.classList.add('flex'); 
-
-        // Reset scroll position to top when switching pages
         activeSection.scrollTop = 0; 
         document.body.style.overflowY = 'hidden'; 
     }
 
-    // Update navigation links for desktop
+    // Update nav links (desktop)
     desktopLinks.forEach(link => {
         link.classList.remove('active-underline', 'text-blue-500');
         link.classList.add('underline-on-hover', 'text-blue-300', 'hover:text-blue-500');
@@ -62,7 +53,7 @@ function showPage(sectionId) {
         activeLink.classList.add('active-underline', 'text-blue-500');
     }
 
-        // Update navigation links for mobile
+    // Update nav links (mobile)
     mobileLinks.forEach(link => {
         link.classList.remove('text-blue-500', 'font-bold');
         link.classList.add('text-blue-300', 'font-medium');
@@ -121,9 +112,28 @@ function setupVideoCarousel() {
     }
 }
 
+/**
+ * Sets up tap-to-play/pause for videos on mobile & desktop
+ */
+function setupVideoPlayToggle() {
+    const videos = document.querySelectorAll(".custom-video");
+    videos.forEach(video => {
+        video.addEventListener("click", (e) => {
+            // If user clicked the actual video element (not a control button)
+            if (e.target === video) {
+                if (video.paused) {
+                    videos.forEach(v => { if (!v.paused && v !== video) v.pause(); });
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            }
+        });
+    });
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
-    // Start on the home page (you can change this to 'contact-section' for testing)
     showPage('home-section'); 
     
     // Set up event listeners for scroll-to-hide and carousel
@@ -140,4 +150,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setupNavHideOnScroll();
     setupVideoCarousel();
+    setupVideoPlayToggle(); // ✅ Enable click-to-play/pause anywhere on the video
 });
