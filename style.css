@@ -1,23 +1,15 @@
-/* ---------------------------------------------------- */
-/* --- GENERAL STYLES & LAYOUT FIXES ------------------ */
-/* ---------------------------------------------------- */
 body {
     font-family: 'Inter', sans-serif;
     background-color: #000000;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    /* Crucial: Ensure the body is not scrollable to manage scrolling in the <main> tag */
-    overflow-y: hidden; 
+    overflow-y: auto; 
 }
 
 #desktop-nav {
     transition: none; 
 }
-
-/* ---------------------------------------------------- */
-/* --- STYLES FOR SCROLL-TO-HIDE ANIMATION      --- */
-/* ---------------------------------------------------- */
 
 #desktop-nav {
     transition: transform 0.3s ease-in-out; 
@@ -26,10 +18,6 @@ body {
 .nav-hidden {
     transform: translateY(-150%); 
 }
-
-/* ---------------------------------------------------- */
-/* --- END SCROLL STYLES                               --- */
-/* ---------------------------------------------------- */
 
 .link {
     position: relative;
@@ -128,59 +116,46 @@ body {
 .fa-telegram-plane:hover { color: #0088cc; }
 .fa-github:hover { color: #6e5494; } 
 
-/* ---------------------------------------------------- */
-/* --- MAIN CONTENT & PADDING FIX                     --- */
-/* ---------------------------------------------------- */
-
 main {
     overflow-y: auto;
-    max-height: 100vh;
 }
 
-/* Apply 6rem (pt-24) padding to the top of ALL non-home sections to clear the fixed nav */
 main:not(#home-section) { 
         padding-top: 6rem;
 }
 
-/* Home page doesn't need top padding as its content is centered */
 #home-section {
     padding-top: 0;
 }
 
 .project-section-box {
-    /* Background and border to match the About section's boxes */
-    background-color: #0f172a; /* Slate 900 */
-    border: 1px solid #3b82f6; /* Blue 500 */
-    border-radius: 0.5rem; /* Rounded-lg */
+    background-color: #0f172a;
+    border: 1px solid #3b82f6; 
+    border-radius: 0.5rem; 
     padding: 2rem;
-    margin-bottom: 2rem; /* Spacing between the three main project sections */
+    margin-bottom: 2rem;
 }
 
-/* --- NEW STYLES FOR VIDEO CAROUSEL --- */
 .video-scroll-container {
-    /* Enable horizontal scrolling and hide the default scrollbar */
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* For Firefox */
-    -ms-overflow-style: none;  /* For Internet Explorer and Edge */
-    scroll-snap-type: x mandatory; /* Snap to elements for smooth switching */
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+    scroll-snap-type: x mandatory;
 }
 
 .video-scroll-container::-webkit-scrollbar {
-    display: none; /* For Chrome, Safari, and Opera */
+    display: none;
 }
 
-/* Style for each video card within the scroll container */
 .video-card {
-    flex-shrink: 0; /* Important: Prevents cards from shrinking */
-    scroll-snap-align: center; /* Snap each card to the center/start */
+    flex-shrink: 0;
+    scroll-snap-align: center;
 }
 
-/* Make the iframe responsive (16:9 aspect ratio) - applies to video card content */
 .video-container {
     position: relative;
     width: 100%;
-    /* 16:9 Aspect Ratio (9 / 16 * 100 = 56.25%) */
     padding-bottom: 56.25%; 
     height: 0;
 }
@@ -191,17 +166,16 @@ main:not(#home-section) {
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 0.25rem; /* rounded-md */
+    border-radius: 0.25rem;
 }
 
-/* --- NEW STYLES FOR SKILL BADGES --- */
 .skill-badge {
     display: inline-block;
     padding: 4px 12px;
-    font-size: 0.75rem; /* text-xs */
-    font-weight: 500; /* font-medium */
+    font-size: 0.75rem;
+    font-weight: 500;
     color: white;
-    border-radius: 9999px; /* rounded-full */
+    border-radius: 9999px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
@@ -210,9 +184,6 @@ main:not(#home-section) {
     transform: scale(1.05);
 }
 
-/* ---------------------------------------------------- */
-/* --- CONTACT FORM STYLES ---------------------------- */
-/* ---------------------------------------------------- */
 .contact-input, .contact-textarea {
     background-color: #1f2937; /* Gray 800 */
     color: #f3f4f6; /* Gray 100 */
